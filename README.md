@@ -1,0 +1,2 @@
+# FTBbot
+Bot discord
