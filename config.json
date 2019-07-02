@@ -1,3 +1,7 @@
 {
-    "token": ""
+    "token": "",
+    "rcon_adress" : "",
+    "rcon" : "",
+    "rcon_password" : "",
+    "channel" : ""
 }

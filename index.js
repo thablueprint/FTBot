@@ -10,7 +10,7 @@ var Rcon = require('rcon');
 var numa = 0;
 var numb = 0;
 
-var conn = new Rcon('localhost', 25575, 'sisilercon');
+var conn = new Rcon(config.rcon_adress, config.rcon, config.rcon_password);
 conn.on('auth', function() {
   console.log("Authed!");
   
@@ -59,7 +59,7 @@ bot.on('message', message => {
         byebye = Math.floor(Math.random() * rip);
         message.reply(byebye)
     }
-    if (message.channel.id == 592303065776783370){
+    if (message.channel.id == config.channel){
         if (message.content.startsWith(prefix + "whitelist ")) {
             var pseudo = message.content.substr("!whitelist ".length);
 
@@ -72,7 +72,7 @@ bot.on('message', message => {
                         + result.substring(20, 32);
                 }
                 console.log(result)
-                message.reply('Envoyé ! Attend que ' + '<@' + '220512050709921793' + '>' + ' voit ce message ')
+                message.reply('Envoyé ! Tu peux maintenant te connecter au serveur')
                 
                 var content = fs.readFileSync(whitelist);
                 var old = JSON.parse(content);
@@ -91,47 +91,6 @@ bot.on('message', message => {
                 
             });
         }
-        
-        if (message.author.id == '245533009825103882'){
-        
-        }
-        //S3
-        if (message.author.id == '245533009825103882'){
-            message.react('🇧🇪');
-        }
-
-        //Kirah
-        if (message.author.id == '132700673404960768'){
-            message.react('🐰');
-        }
-
-        //Thibma
-        if (message.author.id == '220507006815961088'){
-            message.react(message.guild.emojis.get('541601295669133322'));
-        }
-
-        //Failmeras
-        if (message.author.id == '94743577082462208'){
-            message.react(message.guild.emojis.get('540302879542738944'));
-        }
-
-        //Juju
-        /*if (message.author.id == '220512050709921793'){
-            message.react(message.guild.emojis.get('394172002862366730'));
-        }*/
-
-        //Coco
-        if (message.author.id == '220523536698048513'){
-            message.react(message.guild.emojis.get('492318547293241359'));
-        }
-
-        //iUniik
-        if (message.author.id == '220523536698048513'){
-            message.react('💸');
-        }
-
-        //if (message.author.id !== '220512050709921793') return;
-        //message.react(message.guild.emojis.get('🇧:regional_indicator_e:'));
     }
 })
 
